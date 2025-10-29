@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaRocket } from "react-icons/fa";
 import { GiWaterDrop } from "react-icons/gi";
+import portfolioConfig from '../config/portfolioConfig'; 
 
 const IoIosSatellite = () => (
   <svg viewBox="0 0 512 512" fill="currentColor" className="w-full h-full">
@@ -14,6 +15,8 @@ export default function Home() {
   const navigate = useNavigate();
   const [particles, setParticles] = useState([]);
 
+  const { personalInfo, experiences, projects } = portfolioConfig; 
+
   useEffect(() => {
     const newParticles = Array.from({ length: 20 }, (_, i) => ({
       id: i,
@@ -25,43 +28,43 @@ export default function Home() {
     setParticles(newParticles);
   }, []);
 
-  const experiences = [
-    {
-      title: "Avishkar & Dipex Finalist",
-      tech: "Research & Innovation, IoT Systems",
-      description: "Selected as a finalist for university-level Avishkar and Dipex innovation exhibitions for developing scalable Smart Solar Powered Irrigation System",
-      gradient: "from-yellow-500 to-amber-600",
-      borderColor: "border-yellow-400",
-    },
-    {
-      title: "CubeSat / CanSat Prototype",
-      tech: "Arduino, Telemetry, GPS, IMU",
-      description: "Developed a 10x10x10 cm CubeSat prototype for high-altitude balloon testing — including data collection, tracking, and parachute descent.",
-      gradient: "from-purple-400 to-pink-500",
-      borderColor: "border-purple-400",
-    }
-  ];
+  // const experiences = [
+  //   {
+  //     title: "Avishkar & Dipex Finalist",
+  //     tech: "Research & Innovation, IoT Systems",
+  //     description: "Selected as a finalist for university-level Avishkar and Dipex innovation exhibitions for developing scalable Smart Solar Powered Irrigation System",
+  //     gradient: "from-yellow-500 to-amber-600",
+  //     borderColor: "border-yellow-400",
+  //   },
+  //   {
+  //     title: "CubeSat / CanSat Prototype",
+  //     tech: "Arduino, Telemetry, GPS, IMU",
+  //     description: "Developed a 10x10x10 cm CubeSat prototype for high-altitude balloon testing — including data collection, tracking, and parachute descent.",
+  //     gradient: "from-purple-400 to-pink-500",
+  //     borderColor: "border-purple-400",
+  //   }
+  // ];
 
-  const projects = [
-    {
-      id: 1,
-      title: "Smart Irrigation System",
-      description: "IoT-based automated watering system that optimizes water usage",
-      tech: ["IoT", "Sensors", "Cloud"],
-      bgColor: "bg-blue-50 dark:bg-blue-900/20",
-      textColor: "text-blue-600 dark:text-blue-400",
-      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
-    },
-    {
-      id: 2,
-      title: "CubeSat Satellite",
-      description: "Miniature satellite project for space data collection",
-      tech: ["Arduino", "Satellite", "Data"],
-      bgColor: "bg-purple-50 dark:bg-purple-900/20",
-      textColor: "text-purple-600 dark:text-purple-400",
-      image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop"
-    }
-  ];
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     title: "Smart Irrigation System",
+  //     description: "IoT-based automated watering system that optimizes water usage",
+  //     tech: ["IoT", "Sensors", "Cloud"],
+  //     bgColor: "bg-blue-50 dark:bg-blue-900/20",
+  //     textColor: "text-blue-600 dark:text-blue-400",
+  //     image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "CubeSat Satellite",
+  //     description: "Miniature satellite project for space data collection",
+  //     tech: ["Arduino", "Satellite", "Data"],
+  //     bgColor: "bg-purple-50 dark:bg-purple-900/20",
+  //     textColor: "text-purple-600 dark:text-purple-400",
+  //     image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop"
+  //   }
+  // ];
 
   const handleProjectClick = () => {
     navigate('/projects');
@@ -94,16 +97,16 @@ export default function Home() {
           {/* Left Column */}
           <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-textDark dark:text-gray-100">
-              Hey, Myself <span className="text-teal-500">Krishna Bitthariya</span>
+              Hey, Myself <span className="text-teal-500">{personalInfo.name}</span>
             </h1>
             <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-4">
               On a journey of{" "}
               <span className="text-orange-500 font-semibold">
-                learning, building, and evolving.
+                {personalInfo.tagline}
               </span>
             </p>
             <p className="text-sm sm:text-base font-medium text-gray-700 dark:text-gray-200 mb-6">
-              kbitthariya76@gmail.com
+              {personalInfo.email}
             </p>
           </div>
 
@@ -130,15 +133,15 @@ export default function Home() {
                     animation: "pulse 3s ease-in-out infinite"
                   }}
                 />
-                <img
-                  src="my-photo.jpeg"
-                  alt="Profile"
-                  className="relative w-full h-full object-cover shadow-2xl"
-                  style={{
-                    clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                    objectPosition: "50% 25%"
+              <img
+                src={personalInfo.profileImage}
+                alt="Profile"
+                className="relative w-full h-full object-cover shadow-2xl"
+                style={{
+                  clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                  objectPosition: "50% 25%"
                 }}
-                />
+/>
               </div>
             </div>
           </div>
@@ -196,7 +199,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {projects.map((project) => (
+          {projects.slice(0, 2).map((project) => (
             <div
               key={project.id}
               onClick={handleProjectClick}
@@ -225,7 +228,7 @@ export default function Home() {
                 </p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, idx) => (
+                  {project.map((tech, idx) => (
                     <span
                       key={idx}
                       className={`px-3 py-1 text-xs font-medium rounded-full ${project.bgColor} ${project.textColor}`}

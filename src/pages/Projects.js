@@ -3,76 +3,77 @@ import { Link } from "react-router-dom";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { GiWaterDrop } from "react-icons/gi";
 import { IoIosRocket } from "react-icons/io";
+import portfolioConfig from '../config/portfolioConfig';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const projects = [
-    {
-      id: 1,
-      title: "Smart Irrigation System",
-      shortDesc: "IoT-based automated irrigation for water conservation",
-      fullDesc: "An intelligent irrigation system that uses soil moisture sensors, weather data, and machine learning to optimize water usage for agriculture. The system automatically waters plants based on real-time conditions, saving water and improving crop health.",
-      icon: <GiWaterDrop />,
-      color: "blue",
-      gradient: "from-blue-500 to-indigo-600",
-      bgPattern: "bg-blue-50 dark:bg-blue-900/20",
-      // Replace with your actual project image
-      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop",
-      technologies: [
-        "Arduino/ESP32",
-        "Soil Moisture Sensors",
-        "Cloud Integration",
-        "Python Backend",
-        "MQTT Protocol",
-        "Mobile Dashboard"
-      ],
-      features: [
-        "Real-time soil moisture monitoring",
-        "Automated watering schedule",
-        "Weather API integration",
-        "Remote control via mobile app",
-        "Water usage analytics",
-        "Multiple zone management"
-      ],
-      github: "https://github.com/KrishnaBitthariyaCollege",
-      demo: null,
-      status: "In Progress",
-      year: "2024"
-    },
-    {
-      id: 2,
-      title: "CubeSat Satellite Project",
-      shortDesc: "Educational miniature satellite system",
-      fullDesc: "Designed and developed a CubeSat miniature satellite for educational purposes. The project includes data collection, telemetry systems, and ground station communication. Aims to provide hands-on experience with space technology and satellite systems.",
-      icon: <IoIosRocket />,
-      color: "purple",
-      gradient: "from-purple-500 to-pink-600",
-      bgPattern: "bg-purple-50 dark:bg-purple-900/20",
-      // Replace with your actual project image
-      image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
-      technologies: [
-        "Arduino",
-        "Satellite Systems",
-        "C/C++",
-        "Data Analysis",
-        "Radio Communication",
-        "Python"
-      ],
-      features: [
-        "Data collection sensors",
-        "Telemetry and tracking",
-        "Ground station interface",
-        "Power management system",
-        "Orbital mechanics simulation",
-        "Real-time data visualization"
-      ],
-      github: "https://github.com/KrishnaBitthariyaCollege",
-      demo: null,
-      status: "In Development",
-      year: "2025"
-    }
-  ];
+  const { projects } = portfolioConfig;
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     title: "Smart Irrigation System",
+  //     shortDesc: "IoT-based automated irrigation for water conservation",
+  //     fullDesc: "An intelligent irrigation system that uses soil moisture sensors, weather data, and machine learning to optimize water usage for agriculture. The system automatically waters plants based on real-time conditions, saving water and improving crop health.",
+  //     icon: <GiWaterDrop />,
+  //     color: "blue",
+  //     gradient: "from-blue-500 to-indigo-600",
+  //     bgPattern: "bg-blue-50 dark:bg-blue-900/20",
+  //     // Replace with your actual project image
+  //     image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop",
+  //     technologies: [
+  //       "Arduino/ESP32",
+  //       "Soil Moisture Sensors",
+  //       "Cloud Integration",
+  //       "Python Backend",
+  //       "MQTT Protocol",
+  //       "Mobile Dashboard"
+  //     ],
+  //     features: [
+  //       "Real-time soil moisture monitoring",
+  //       "Automated watering schedule",
+  //       "Weather API integration",
+  //       "Remote control via mobile app",
+  //       "Water usage analytics",
+  //       "Multiple zone management"
+  //     ],
+  //     github: "https://github.com/KrishnaBitthariyaCollege",
+  //     demo: null,
+  //     status: "In Progress",
+  //     year: "2024"
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "CubeSat Satellite Project",
+  //     shortDesc: "Educational miniature satellite system",
+  //     fullDesc: "Designed and developed a CubeSat miniature satellite for educational purposes. The project includes data collection, telemetry systems, and ground station communication. Aims to provide hands-on experience with space technology and satellite systems.",
+  //     icon: <IoIosRocket />,
+  //     color: "purple",
+  //     gradient: "from-purple-500 to-pink-600",
+  //     bgPattern: "bg-purple-50 dark:bg-purple-900/20",
+  //     // Replace with your actual project image
+  //     image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
+  //     technologies: [
+  //       "Arduino",
+  //       "Satellite Systems",
+  //       "C/C++",
+  //       "Data Analysis",
+  //       "Radio Communication",
+  //       "Python"
+  //     ],
+  //     features: [
+  //       "Data collection sensors",
+  //       "Telemetry and tracking",
+  //       "Ground station interface",
+  //       "Power management system",
+  //       "Orbital mechanics simulation",
+  //       "Real-time data visualization"
+  //     ],
+  //     github: "https://github.com/KrishnaBitthariyaCollege",
+  //     demo: null,
+  //     status: "In Development",
+  //     year: "2025"
+  //   }
+  // ];
 
   const ProjectCard = ({ project }) => (
     <div
