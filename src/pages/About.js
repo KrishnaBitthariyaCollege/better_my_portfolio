@@ -53,51 +53,7 @@ export default function About() {
     alert("Message sent! (This is a demo - replace with your backend)");
   };
 
-  // const skills = [
-  //   { name: "Flutter", icon: <SiFlutter />, color: "text-blue-500", level: 85 },
-  //   { name: "React", icon: <FaReact />, color: "text-cyan-500", level: 80 },
-  //   { name: "Firebase", icon: <SiFirebase />, color: "text-yellow-500", level: 75 },
-  //   { name: "Arduino", icon: <SiArduino />, color: "text-teal-600", level: 70 },
-  //   { name: "JavaScript", icon: <SiJavascript />, color: "text-yellow-400", level: 85 },
-  //   { name: "Tailwind", icon: <SiTailwindcss />, color: "text-sky-500", level: 90 },
-  // ];
 
-  // const skills = [
-  //   { name: "C++", icon: <SiCplusplus />, color: "text-blue-500", level: 85 },
-  //   { name: "Python", icon: <SiPython />, color: "text-yellow-500", level: 80 },
-  //   { name: "Arduino / Teensy", icon: <SiArduino />, color: "text-teal-600", level: 90 },
-  //   { name: "ESP8266 / ESP-NOW", icon: < SiEspressif/>, color: "text-orange-600", level: 85 },
-  //   { name: "React / Tailwind", icon: <FaReact />, color: "text-cyan-500", level: 80 },
-  //   { name: "Firebase / MQTT", icon: <SiFirebase />, color: "text-yellow-500", level: 70 },
-  //   // { name: "CanSat / CubeSat Systems", icon: <IoIosPlanet />, color: "text-purple-400", level: 70 },
-  // ];
-  
-
-  // const journey = [
-  //   {
-  //     year: "2024",
-  //     title: "CubeSat Project",
-  //     description: "Developed miniature satellite system for education",
-  //     icon: <IoCodeSlash />,
-  //     color: "purple"
-  //   },
-  //   {
-  //     year: "2023",
-  //     title: "Smart Irrigation",
-  //     description: "Built IoT system for water conservation",
-  //     icon: <GiBrain />,
-  //     color: "blue"
-  //   }
-  // ];
-
-  // const interests = [
-  //   { name: "App Development", emoji: "📱", color: "bg-blue-100 dark:bg-blue-900/30" },
-  //   { name: "IoT & Hardware", emoji: "🔧", color: "bg-green-100 dark:bg-green-900/30" },
-  //   { name: "Cloud Computing", emoji: "☁️", color: "bg-purple-100 dark:bg-purple-900/30" },
-  //   { name: "AI & ML", emoji: "🤖", color: "bg-pink-100 dark:bg-pink-900/30" },
-  //   { name: "Space Tech", emoji: "🚀", color: "bg-indigo-100 dark:bg-indigo-900/30" },
-  //   { name: "Problem Solving", emoji: "🧩", color: "bg-yellow-100 dark:bg-yellow-900/30" }
-  // ];
 
   return (
     <section className="bg-white dark:bg-gray-900 py-20" id="about">

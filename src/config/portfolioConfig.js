@@ -16,7 +16,7 @@ const portfolioConfig = {
     // ==================== SOCIAL LINKS ====================
     socialLinks: {
       github: "https://github.com/KrishnaBitthariyaCollege",
-      linkedin: "https://linkedin.com/in/yourprofile", // UPDATE THIS
+      linkedin: "https://www.linkedin.com/in/krishna-bitthariya-445952267/",
       twitter: "", // Optional
       instagram: "", // Optional
       portfolio: "" // Optional - your live portfolio URL

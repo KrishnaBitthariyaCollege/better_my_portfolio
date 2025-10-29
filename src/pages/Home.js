@@ -28,43 +28,7 @@ export default function Home() {
     setParticles(newParticles);
   }, []);
 
-  // const experiences = [
-  //   {
-  //     title: "Avishkar & Dipex Finalist",
-  //     tech: "Research & Innovation, IoT Systems",
-  //     description: "Selected as a finalist for university-level Avishkar and Dipex innovation exhibitions for developing scalable Smart Solar Powered Irrigation System",
-  //     gradient: "from-yellow-500 to-amber-600",
-  //     borderColor: "border-yellow-400",
-  //   },
-  //   {
-  //     title: "CubeSat / CanSat Prototype",
-  //     tech: "Arduino, Telemetry, GPS, IMU",
-  //     description: "Developed a 10x10x10 cm CubeSat prototype for high-altitude balloon testing — including data collection, tracking, and parachute descent.",
-  //     gradient: "from-purple-400 to-pink-500",
-  //     borderColor: "border-purple-400",
-  //   }
-  // ];
 
-  // const projects = [
-  //   {
-  //     id: 1,
-  //     title: "Smart Irrigation System",
-  //     description: "IoT-based automated watering system that optimizes water usage",
-  //     tech: ["IoT", "Sensors", "Cloud"],
-  //     bgColor: "bg-blue-50 dark:bg-blue-900/20",
-  //     textColor: "text-blue-600 dark:text-blue-400",
-  //     image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "CubeSat Satellite",
-  //     description: "Miniature satellite project for space data collection",
-  //     tech: ["Arduino", "Satellite", "Data"],
-  //     bgColor: "bg-purple-50 dark:bg-purple-900/20",
-  //     textColor: "text-purple-600 dark:text-purple-400",
-  //     image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop"
-  //   }
-  // ];
 
   const handleProjectClick = () => {
     navigate('/projects');
@@ -228,14 +192,14 @@ export default function Home() {
                 </p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.map((tech, idx) => (
+                  {/* {project.map((tech, idx) => (
                     <span
                       key={idx}
                       className={`px-3 py-1 text-xs font-medium rounded-full ${project.bgColor} ${project.textColor}`}
                     >
                       {tech}
-                    </span>
-                  ))}
+                    </span> */}
+                  {/* ))} */}
                 </div>
                 
                 <span className="text-teal-600 dark:text-teal-400 font-semibold text-sm group-hover:text-orange-500 transition-colors flex items-center gap-2">
