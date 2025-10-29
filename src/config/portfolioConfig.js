@@ -9,7 +9,7 @@ const portfolioConfig = {
       email: "kbitthariya76@gmail.com",
       tagline: "learning, building, and evolving",
       bio: "Krishna is an enthusiastic and curious learner exploring the world of technology. Passionate about Flutter, Firebase, and cross-platform development, he is actively building real-world projects while learning modern tools like Riverpod, barcode systems, and cloud integration. Eager to grow in app development and AI, Krishna is committed to turning ideas into impactful digital solutions.",
-      profileImage: "my-photo.jpeg", // Path to your profile image in public folder
+      profileImage: `${process.env.PUBLIC_URL}/my-photo.jpeg`, // Path to your profile image in public folder
       location: "Artist Village, Maharashtra, IN"
     },
   
@@ -96,7 +96,7 @@ const portfolioConfig = {
         color: "blue",
         gradient: "from-blue-500 to-indigo-600",
         bgPattern: "bg-blue-50 dark:bg-blue-900/20",
-        image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop",
+        image: `${process.env.PUBLIC_URL}/smart-irrigation.jpeg`,
         technologies: [
           "Arduino/ESP32",
           "Soil Moisture Sensors",
@@ -113,9 +113,9 @@ const portfolioConfig = {
           "Water usage analytics",
           "Multiple zone management"
         ],
-        github: "https://github.com/KrishnaBitthariyaCollege", // Project-specific GitHub link
+        github: "https://github.com/KrishnaBitthariya/CropConnect", // Project-specific GitHub link
         demo: null, // Add demo link if available
-        status: "In Progress",
+        status: "Developed",
         year: "2024"
       },
       {
@@ -126,7 +126,7 @@ const portfolioConfig = {
         color: "purple",
         gradient: "from-purple-500 to-pink-600",
         bgPattern: "bg-purple-50 dark:bg-purple-900/20",
-        image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
+        image: `${process.env.PUBLIC_URL}/cansat.jpeg`,
         technologies: [
           "Arduino",
           "Satellite Systems",
@@ -143,7 +143,7 @@ const portfolioConfig = {
           "Orbital mechanics simulation",
           "Real-time data visualization"
         ],
-        github: "https://github.com/KrishnaBitthariyaCollege",
+        github: "https://github.com/KrishnaBitthariya/Vyom-Voyage-Instumentation",
         demo: null,
         status: "In Development",
         year: "2025"
