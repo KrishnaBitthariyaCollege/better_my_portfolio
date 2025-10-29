@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaRocket, FaMobileAlt, FaCloud, FaMapMarkedAlt } from "react-icons/fa";
+import { FaRocket } from "react-icons/fa";
 import { GiWaterDrop } from "react-icons/gi";
 
-// For demonstration - replace with actual navigation in your app
 const IoIosSatellite = () => (
   <svg viewBox="0 0 512 512" fill="currentColor" className="w-full h-full">
     <path d="M336 176l-80-80c-8-8-8-24 0-32 24-24 60-24 84 0l80 80c8 8 8 24 0 32-24 24-60 24-84 0z"/>
@@ -27,21 +26,17 @@ export default function Home() {
   }, []);
 
   const experiences = [
-
     {
       title: "Avishkar & Dipex Finalist",
       tech: "Research & Innovation, IoT Systems",
       description: "Selected as a finalist for university-level Avishkar and Dipex innovation exhibitions for developing scalable Smart Solar Powered Irrigation System",
-      // icon: <FaTrophy />,
       gradient: "from-yellow-500 to-amber-600",
       borderColor: "border-yellow-400",
     },
-
     {
       title: "CubeSat / CanSat Prototype",
       tech: "Arduino, Telemetry, GPS, IMU",
       description: "Developed a 10x10x10 cm CubeSat prototype for high-altitude balloon testing — including data collection, tracking, and parachute descent.",
-      // icon: <IoIosRocket />,
       gradient: "from-purple-400 to-pink-500",
       borderColor: "border-purple-400",
     }
@@ -53,24 +48,27 @@ export default function Home() {
       title: "Smart Irrigation System",
       description: "IoT-based automated watering system that optimizes water usage",
       tech: ["IoT", "Sensors", "Cloud"],
-      icon: <GiWaterDrop className="text-4xl" />,
       bgColor: "bg-blue-50 dark:bg-blue-900/20",
-      textColor: "text-blue-600 dark:text-blue-400"
+      textColor: "text-blue-600 dark:text-blue-400",
+      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop"
     },
     {
       id: 2,
       title: "CubeSat Satellite",
       description: "Miniature satellite project for space data collection",
       tech: ["Arduino", "Satellite", "Data"],
-      icon: <div className="text-4xl"><IoIosSatellite /></div>,
       bgColor: "bg-purple-50 dark:bg-purple-900/20",
-      textColor: "text-purple-600 dark:text-purple-400"
+      textColor: "text-purple-600 dark:text-purple-400",
+      image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop"
     }
   ];
 
   const handleProjectClick = () => {
     navigate('/projects');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to top immediately when navigating
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 0);
   };
 
   return (
@@ -136,10 +134,9 @@ export default function Home() {
                   src="my-photo.jpeg"
                   alt="Profile"
                   className="relative w-full h-full object-cover shadow-2xl"
-                  // className="relative w-full h-full object-cover shadow-2xl transform -translate-y-"
                   style={{
                     clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-                    objectPosition: "50% 25%" // This moves the image up. Try values like 20%, 30% etc.
+                    objectPosition: "50% 25%"
                 }}
                 />
               </div>
@@ -148,7 +145,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Experience Section - Enhanced Cards */}
+      {/* Experience Section */}
       <div className="container mx-auto px-4 mt-16 mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-textDark dark:text-gray-100 mb-10 text-center">
           Experience & Projects
@@ -159,12 +156,10 @@ export default function Home() {
               key={idx}
               className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
             >
-              {/* Gradient Top Border */}
               <div className={`h-1 bg-gradient-to-r ${exp.gradient}`} />
               
               <div className="p-6">
                 <div className="flex items-start space-x-4">
-                  {/* Icon */}
                   <div className={`p-4 rounded-xl bg-gradient-to-br ${exp.gradient} text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     {exp.icon}
                   </div>
@@ -183,14 +178,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Hover Effect Overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${exp.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Featured Projects Preview Section */}
+      {/* IMPROVED Featured Projects Section - NO ICONS */}
       <div className="container mx-auto px-4 mb-20">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-textDark dark:text-gray-100 mb-3">
@@ -201,27 +195,36 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {projects.map((project) => (
             <div
               key={project.id}
               onClick={handleProjectClick}
               className="group cursor-pointer bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2"
             >
-              <div className="p-8 text-center">
-                <div className={`inline-flex p-6 rounded-full ${project.bgColor} ${project.textColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  {project.icon}
+              {/* Image Section with Padding */}
+              <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                <div className="relative h-56 rounded-xl overflow-hidden bg-white dark:bg-gray-700 shadow-inner">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                
-                <h3 className="text-xl font-bold text-textDark dark:text-gray-100 mb-3">
+              </div>
+              
+              {/* Content Section - WITHOUT ICON */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-textDark dark:text-gray-100 mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, idx) => (
                     <span
                       key={idx}
@@ -232,8 +235,11 @@ export default function Home() {
                   ))}
                 </div>
                 
-                <span className="text-teal-600 dark:text-teal-400 font-semibold text-sm group-hover:text-orange-500 transition-colors">
-                  Learn More →
+                <span className="text-teal-600 dark:text-teal-400 font-semibold text-sm group-hover:text-orange-500 transition-colors flex items-center gap-2">
+                  Learn More 
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </span>
               </div>
             </div>
