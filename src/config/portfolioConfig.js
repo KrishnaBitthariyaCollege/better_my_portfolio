@@ -59,6 +59,39 @@ const portfolioConfig = {
       { name: "React / Tailwind", level: 80 },
       { name: "Firebase / MQTT", level: 70 }
     ],
+
+    // ==================== CERTIFICATIONS ====================
+
+    certifications: [
+      {
+        id: 1,
+        name: "AWS Certified Solutions Architect",
+        issuer: "Amazon Web Services",
+        date: "March 2024",
+        image: "/certificates/aws-cert.jpg", // Place image in public/certificates/
+        credentialUrl: "https://www.credly.com/badges/your-credential-id",
+        description: "Cloud architecture and AWS services expertise"
+      },
+      {
+        id: 2,
+        name: "Flutter & Dart Complete Guide",
+        issuer: "Udemy",
+        date: "January 2024",
+        image: "/certificates/flutter-cert.jpg",
+        credentialUrl: "https://udemy.com/certificate/your-id",
+        description: "Cross-platform mobile app development"
+      },
+      {
+        id: 3,
+        name: "Firebase Certified Developer",
+        issuer: "Google",
+        date: "December 2023",
+        image: "/cansat.jpeg",
+        credentialUrl: "https://google.com/certificate/your-id",
+        description: "Backend services and real-time databases"
+      },
+      // Add more certifications as needed
+    ],
   
     // ==================== AREAS OF INTEREST ====================
     interests: [

@@ -1,9 +1,10 @@
 // STEP 1: Add useEffect and useLocation to your imports
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { FaReact } from "react-icons/fa";
-import { SiCplusplus, SiPython,SiEspressif  } from "react-icons/si";
+import { FaReact, FaExternalLinkAlt } from "react-icons/fa";
+import { SiCplusplus, SiPython, SiEspressif } from "react-icons/si";
 import { IoIosPlanet } from "react-icons/io";
+import { HiAcademicCap } from "react-icons/hi";
 import portfolioConfig from '../config/portfolioConfig'; 
 
 import { 
@@ -30,7 +31,7 @@ export default function About() {
 
   // STEP 2: Add this line to get the page's location
   const location = useLocation();
-  const { personalInfo, skills, journey, interests } = portfolioConfig;
+  const { personalInfo, skills, journey, interests, certifications } = portfolioConfig;
 
   // STEP 3: Add this entire block to handle the scrolling
   useEffect(() => {
@@ -53,13 +54,11 @@ export default function About() {
     alert("Message sent! (This is a demo - replace with your backend)");
   };
 
-
-
   return (
     <section className="bg-white dark:bg-gray-900 py-20" id="about">
       <div className="container mx-auto px-4 max-w-6xl">
         
-        {/* ... The rest of your component is exactly the same ... */}
+        {/* About Me Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-orange-500 mb-4">
             About Me
@@ -75,6 +74,7 @@ export default function About() {
           </p>
         </div>
 
+        {/* Technical Skills */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-textDark dark:text-gray-100 mb-8 text-center">
             Technical Skills
@@ -106,6 +106,70 @@ export default function About() {
           </div>
         </div>
 
+        {/* 🆕 CERTIFICATIONS SECTION - NEW! */}
+        {certifications && certifications.length > 0 && (
+          <div className="mb-20">
+            <h3 className="text-3xl font-bold text-textDark dark:text-gray-100 mb-8 text-center">
+              Certifications & Courses
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certifications.map((cert) => (
+                <div
+                  key={cert.id}
+                  className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  {/* Certificate Image */}
+                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-teal-500/20 to-orange-500/20 p-4 flex items-center justify-center">
+                    <img
+                      src={cert.image}
+                      alt={cert.name}
+                      className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        e.target.src = 'https://via.placeholder.com/400x300/06b6d4/ffffff?text=Certificate';
+                      }}
+                    />
+                    <div className="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg">
+                      <HiAcademicCap className="text-2xl text-teal-500" />
+                    </div>
+                  </div>
+
+                  {/* Certificate Details */}
+                  <div className="p-6">
+                    <h4 className="text-xl font-bold text-textDark dark:text-gray-100 mb-2 line-clamp-2">
+                      {cert.name}
+                    </h4>
+                    <p className="text-sm font-semibold text-teal-600 dark:text-teal-400 mb-1">
+                      {cert.issuer}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                      {cert.date}
+                    </p>
+                    {cert.description && (
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                        {cert.description}
+                      </p>
+                    )}
+                    
+                    {/* View Credential Button */}
+                    {cert.credentialUrl && (
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-2 text-sm font-semibold text-teal-600 dark:text-teal-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors group"
+                      >
+                        <span>View Credential</span>
+                        <FaExternalLinkAlt className="text-xs group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* My Journey */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-textDark dark:text-gray-100 mb-12 text-center">
             My Journey
@@ -140,6 +204,7 @@ export default function About() {
           </div>
         </div>
 
+        {/* Areas of Interest */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-textDark dark:text-gray-100 mb-8 text-center">
             Areas of Interest
@@ -159,6 +224,7 @@ export default function About() {
           </div>
         </div>
 
+        {/* Quick Facts */}
         <div className="mb-20 bg-gradient-to-r from-teal-500/10 to-orange-500/10 rounded-3xl p-8">
           <h3 className="text-3xl font-bold text-textDark dark:text-gray-100 mb-6 text-center">
             Quick Facts About Me
@@ -203,6 +269,7 @@ export default function About() {
           </div>
         </div>
 
+        {/* Contact Form */}
         <form
           id="contact"
           onSubmit={handleSubmit}
