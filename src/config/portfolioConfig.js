@@ -65,31 +65,14 @@ const portfolioConfig = {
     certifications: [
       {
         id: 1,
-        name: "AWS Certified Solutions Architect",
-        issuer: "Amazon Web Services",
-        date: "March 2024",
-        image: "/certificates/aws-cert.jpg", // Place image in public/certificates/
-        credentialUrl: "https://www.credly.com/badges/your-credential-id",
-        description: "Cloud architecture and AWS services expertise"
+        name: "REACT JS FREE COURSE",
+        issuer: "Scaler Topics",
+        date: "19 September 2025",
+        image: `${process.env.PUBLIC_URL}/ip-certificate.png`, // Place image in public/certificates/
+        credentialUrl: "https://moonshot.scaler.com/s/sl/boEbzob03y?_gl=1*1g4acpi*_gcl_au*MTQzNjYyMTg4OS4xNzU4MjIzMjEy*FPAU*MTQzNjYyMTg4OS4xNzU4MjIzMjEy*_ga*MTY5NDUwNjA5NC4xNzU4MjIzMjEy*_ga_53S71ZZG1X*czE3NTgyNTQyODMkbzIkZzEkdDE3NTgyNTY3NjQkajQ3JGwwJGgyNDI2ODY5MjY.",
+        description: "React jss complete guide from basics to advanced topics including hooks, state management, routing, and performance optimization."
       },
-      {
-        id: 2,
-        name: "Flutter & Dart Complete Guide",
-        issuer: "Udemy",
-        date: "January 2024",
-        image: "/certificates/flutter-cert.jpg",
-        credentialUrl: "https://udemy.com/certificate/your-id",
-        description: "Cross-platform mobile app development"
-      },
-      {
-        id: 3,
-        name: "Firebase Certified Developer",
-        issuer: "Google",
-        date: "December 2023",
-        image: "/cansat.jpeg",
-        credentialUrl: "https://google.com/certificate/your-id",
-        description: "Backend services and real-time databases"
-      },
+      
       // Add more certifications as needed
     ],
   
